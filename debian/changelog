@@ -1,3 +1,9 @@
+lsf (1.1.19) bionic; urgency=medium
+
+  * Initial release for bionic
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 04 Oct 2018 14:21:37 +0200
+
 lsf (1.1.9) xenial; urgency=medium
 
   * First relase to xenial
