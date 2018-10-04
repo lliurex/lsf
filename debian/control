@@ -1,0 +1,28 @@
+Source: lsf
+Section: x11
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Build-Depends: cdbs, debhelper (>= 9), cmake (>= 2.6.0), doxygen, pkg-config,libxmlrpc-c++8-dev,libcurl4-gnutls-dev
+Standards-Version: 3.9.3
+
+ 
+Package: liblsf-1.0
+Architecture: any
+Pre-Depends: multiarch-support
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: LSF 1.0 core files
+ LliureX System Framework libraries 1.0 shared libraries
+
+Package: liblsf-1.0-n4d
+Architecture: any
+Pre-Depends: multiarch-support
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: LSF 1.0 n4d support
+ LliureX System Framework n4d support
+
+Package: liblsf-1.0-dev
+Architecture: any
+Depends: liblsf-1.0, liblsf-1.0-n4d, libxmlrpc-c++8-dev
+Description: LSF 1.0 development files
+ LliureX System Framework 1.0 headers and libs needed for develop
+

@@ -1,0 +1,46 @@
+#!/usr/bin/make -f 
+
+LLXPATH=$(CURDIR)/obj-$(DEB_BUILD_GNU_TYPE)
+
+%:
+	dh $@
+
+
+
+override_dh_install:
+	
+
+
+ifeq ($(DEB_BUILD_ARCH),amd64)
+	@echo "Using amd64 setup" 
+		
+	mkdir -p pc/usr/lib/x86_64-linux-gnu/pkgconfig
+	cp lsf-1.0-amd64.pc pc/usr/lib/x86_64-linux-gnu/pkgconfig/lsf-1.0.pc	
+	
+	mkdir -p install/usr/lib/x86_64-linux-gnu
+	cp $(LLXPATH)/src/liblsf-1.0.so install/usr/lib/x86_64-linux-gnu
+
+	cp lsf-1.0-n4d-amd64.pc pc/usr/lib/x86_64-linux-gnu/pkgconfig/lsf-1.0-n4d.pc	
+	
+	mkdir -p install-n4d/usr/lib/x86_64-linux-gnu
+	cp $(LLXPATH)/src/liblsf-1.0-n4d.so install-n4d/usr/lib/x86_64-linux-gnu
+	
+endif
+
+ifeq ($(DEB_BUILD_ARCH),i386)
+	@echo "Using i386 setup" 
+	
+	mkdir -p pc/usr/lib/i386-linux-gnu/pkgconfig
+	cp lsf-1.0-i386.pc pc/usr/lib/i386-linux-gnu/pkgconfig/lsf-1.0.pc	
+	
+	mkdir -p install/usr/lib/i386-linux-gnu
+	cp $(LLXPATH)/src/liblsf-1.0.so install/usr/lib/i386-linux-gnu
+	
+	cp lsf-1.0-n4d-i386.pc pc/usr/lib/i386-linux-gnu/pkgconfig/lsf-1.0-n4d.pc	
+	
+	mkdir -p install-n4d/usr/lib/i386-linux-gnu
+	cp $(LLXPATH)/src/liblsf-1.0-n4d.so install-n4d/usr/lib/i386-linux-gnu
+
+endif
+
+	dh_install
